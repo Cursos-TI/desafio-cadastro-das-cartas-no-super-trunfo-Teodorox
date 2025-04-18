@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-int main() {
-    
+int main()
+{
     char estado;
     char codigo[20];
     char nome_cidade[20];
@@ -9,6 +9,8 @@ int main() {
     float area;
     float pib;
     int pontos_turistico;
+    float densidade_populacional;
+    float pib_per_capita;
 
     char estado2;
     char codigo2[20];
@@ -17,14 +19,16 @@ int main() {
     float area2;
     float pib2;
     int pontos_turistico2;
+    float densidade_populacional2;
+    float pib_per_capita2;
 
     /*
     Para cada carta, foi criado uma variavel especifica, por exemplo:
-    as variaveis que correspondem a CARTA1, todas elas não possuem 
+    as variaveis que correspondem a CARTA1, todas elas não possuem
     o numero 2 no final.
 
     Já as variaveis que correspondem a CARTA2, todas elas possuem
-    o numero2 ao final do nome. Fiz dessa forma com o intuito de não mudar tanto 
+    o numero2 ao final do nome. Fiz dessa forma com o intuito de não mudar tanto
     o nome da variavel e mantê-lo o mais autoexplicativo possível.
     */
    
@@ -50,7 +54,11 @@ int main() {
 
     printf("Digite a primeira quantidade de PONTOS TURÍSTICOS que corresponde a carta 1: \n");
     scanf("%d", &pontos_turistico);
- 
+
+    densidade_populacional = (float) populacao / area;
+
+    pib_per_capita = (float)(pib * 1000000000) / populacao;
+    
     // CARTA 2
     
     printf("\n***** Digite as informações referente a carta2 *****\n");
@@ -82,6 +90,10 @@ int main() {
     printf("Digite a segunda quantidade de PONTOS TURÍSTICOS que corresponde a carta 2: \n");
     scanf("%d", &pontos_turistico2);
 
+    densidade_populacional2 = (float) populacao2 / area2;
+
+    pib_per_capita2 = (float)(pib2 * 1000000000) / populacao2;
+
     printf("\nCarta1:\n");
     printf("Estado: %c\n", estado);
     printf("Código: %s\n", codigo);
@@ -90,6 +102,8 @@ int main() {
     printf("Área: %.2f km²\n", area);
     printf("PIB: %.2f bilhões de reais\n", pib);
     printf("Número de Pontos Turísticos: %d\n", pontos_turistico);
+    printf("Densidade Populacional: %.2f hab/km²\n", densidade_populacional);
+    printf("PIB per Capita: %.2f reais \n", pib_per_capita);
 
     printf("\nCarta2:\n");
     printf("Estado: %c\n", estado2);
@@ -99,6 +113,8 @@ int main() {
     printf("Área: %.2f km²\n", area2);
     printf("PIB: %.2f bilhões de reais\n", pib2);
     printf("Número de Pontos Turísticos: %d\n", pontos_turistico2);
+    printf("Densidade Populacional: %.2f hab/km²\n", densidade_populacional2);
+    printf("PIB per Capita: %.2f reais\n", pib_per_capita2);
 
     return 0;
 }
